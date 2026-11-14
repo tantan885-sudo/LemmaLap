@@ -20,10 +20,14 @@ a{color:inherit}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--surface);border-bottom:1px solid var(--line)}
 .bar{max-width:1080px;margin:0 auto;padding:.75rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .logo{font-weight:800;font-size:1.25rem;text-decoration:none;display:flex;gap:.5rem;align-items:center}
-.logo img{width:2rem;height:2rem;object-fit:contain;display:block}
+.logo img{width:6rem;height:6rem;object-fit:contain;display:block}
 
-/* Hamburger Menu Toggle for Mobile */
-.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:.5rem;font-size:1.5rem;color:var(--ink)}
+/* Menu and day/night controls */
+.header-actions{display:flex;align-items:center;gap:.35rem;margin-left:auto}
+.menu-toggle,.theme-toggle{background:none;border:0;cursor:pointer;padding:.5rem;color:var(--ink);font:inherit}
+.menu-toggle{display:none;font-size:1.5rem;line-height:1}
+.theme-toggle{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:10px;font-size:1.25rem}
+.theme-toggle:hover,.menu-toggle:hover{background:var(--bg)}
 @media (max-width:768px){
   .menu-toggle{display:block}
   nav{display:none;width:100%;flex-basis:100%}
@@ -42,43 +46,83 @@ nav li:hover>ul,nav li:focus-within>ul{display:flex}
 
 main{max-width:1080px;margin:0 auto;padding:0 1.25rem 3rem}
 .view{display:none}.view.on{display:block}
-.hero{background:var(--hero);color:var(--hero-ink);margin:0 -1.25rem;padding:3.5rem 1.25rem;border-radius:0 0 20px 20px}
+.hero{background:linear-gradient(rgba(10,17,32,.72),rgba(10,17,32,.72)),url('https://raw.githubusercontent.com/tantan885-sudo/LemmaLap/12b3ce0899bc1cacac0a0583e2a9e122398b2340/photo_2026-11-14_18-02-43.jpg?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;background-color:var(--hero);color:var(--hero-ink);margin:0 -1.25rem;padding:3.5rem 1.25rem;border-radius:0 0 20px 20px}
 .hero>div{max-width:1080px;margin:0 auto}
 h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.2;margin:0 0 1rem;font-weight:800;word-break:break-word}
-.hero p{max-width:34rem;opacity:.9;margin:0 0 1.5rem;font-size:0.95rem}
+.hero h1{text-align:center}
+.hero p{max-width:34rem;opacity:.9;margin:0 auto 1.5rem;font-size:0.95rem;text-align:center}
 
 /* Get Start Button in Baby Blue */
-.btn-getstart{display:inline-block;background:var(--baby-blue);color:#0e1626;font-weight:800;padding:.75rem 1.4rem;border-radius:10px;text-decoration:none;box-shadow:0 4px 12px rgba(79,195,214,0.3);transition:opacity 0.2s}
+.btn-getstart{display:block;width:fit-content;margin:0 auto;background:var(--baby-blue);color:#0e1626;font-weight:800;padding:.75rem 1.4rem;border-radius:10px;text-decoration:none;box-shadow:0 4px 12px rgba(79,195,214,0.3);transition:opacity 0.2s}
 .btn-getstart:hover{opacity:0.9}
 
 h2{font-size:1.5rem;margin:2.5rem 0 .5rem}
+#home>h2,#home>p{text-align:center}
+.exam-cta{text-align:center}
 .btn{display:inline-block;background:var(--accent);color:#14233c;font-weight:800;padding:.75rem 1.4rem;border-radius:10px;text-decoration:none}
 .btn.alt{background:var(--brand);color:var(--brand-ink)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:1.25rem}
 
-/* Tiles with background image and centered text */
-.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:200px;padding:1.5rem;border-radius:14px;text-decoration:none;color:#fff;font-weight:800;font-size:1.35rem;background-size:cover;background-position:center;position:relative;overflow:hidden}
-.tile::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.6));z-index:1}
-.tile span{position:relative;z-index:2}
-.tile small{font-weight:400;font-size:.95rem;opacity:.9;position:relative;z-index:2}
+/* Tile structure using <img> element inside for perfect fit */
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:220px;padding:1.5rem;border-radius:14px;text-decoration:none;color:#fff;font-weight:800;font-size:1.35rem;background-color:var(--hero);position:relative;overflow:hidden}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.tile::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.65));z-index:2}
+.tile span,.tile small{position:relative;z-index:3}
 
-/* Default gradient fallback if no background image is set */
+/* Default gradient fallback style classes if needed */
 .t1{background:linear-gradient(160deg,#0f6f82,#14233c)}
 .t2{background:linear-gradient(160deg,#b4540a,#14233c)}
 
-.cta{margin-top:3rem;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:2rem}
-.page{padding-top:2.5rem;max-width:44rem}
+.cta{margin-top:3rem;background:linear-gradient(rgba(10,17,32,.72),rgba(10,17,32,.72)),url('https://raw.githubusercontent.com/tantan885-sudo/LemmaLap/12b3ce0899bc1cacac0a0583e2a9e122398b2340/photo_2026-11-14_18-02-48.jpg?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;border:1px solid var(--line);border-radius:14px;padding:2rem;color:#fff;text-align:center}
+.page{padding-top:2.5rem;max-width:44rem;margin-inline:auto}
 .page h1{font-size:clamp(1.8rem,5vw,2.6rem)}
+#maths-g12,#uhs-mcqs,#mcqs-list,#contact-us{text-align:center}
+#maths-g12 .list,#uhs-mcqs .list,#mcqs-list .list{max-width:34rem;margin-inline:auto;text-align:left}
+#contact-us .contact-banner{flex-direction:column;text-align:center}
+#contact-us .banner-actions{width:min(100%,22rem);min-width:0}
+
+/* Matching illustration backgrounds on learning pages */
+#maths-g12,#about-me,#uhs-mcqs,#mcqs-list{position:relative;isolation:isolate;min-height:18rem;padding:2.5rem 1.5rem;overflow:hidden;border-radius:16px}
+#maths-g12,#uhs-mcqs,#mcqs-list{background:#fff;color:#14233c}
+#maths-g12::before,#about-me::before,#uhs-mcqs::before,#mcqs-list::before{content:"";position:absolute;inset:0 0 0 auto;width:55%;background:url('https://th.bing.com/th/id/OIP.uNEty9S7_gXsCGWrsU3VZwHaFI?w=267&h=184&c=7&r=0&o=7&pid=1.7&rm=3') right center/contain no-repeat;z-index:-1}
+#maths-g12::after,#about-me::after,#uhs-mcqs::after,#mcqs-list::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 38%,transparent 100%);z-index:0}
+#maths-g12::after,#uhs-mcqs::after,#mcqs-list::after{background:linear-gradient(90deg,#fff 0%,#fff 38%,transparent 100%)}
+#maths-g12 .list a,#uhs-mcqs .list a,#mcqs-list .list a{background:#f6f8fb;border-color:#d6deea;color:#14233c}
+#maths-g12 .list span,#uhs-mcqs .list span,#mcqs-list .list span{color:#51607a}
+#maths-g12>*,#about-me>*,#uhs-mcqs>*,#mcqs-list>*{position:relative;z-index:1;max-width:24rem}
+@media(max-width:640px){#maths-g12,#about-me,#uhs-mcqs,#mcqs-list{min-height:20rem;padding:2rem 1rem}#maths-g12::before,#about-me::before,#uhs-mcqs::before,#mcqs-list::before{width:58%;opacity:.75}#maths-g12::after,#about-me::after,#uhs-mcqs::after,#mcqs-list::after{background:linear-gradient(90deg,var(--bg) 0%,var(--bg) 35%,transparent 100%)}}
+@media(max-width:640px){#maths-g12::after,#uhs-mcqs::after,#mcqs-list::after{background:linear-gradient(90deg,#fff 0%,#fff 35%,transparent 100%)}}
+
 .note{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:1rem 1.25rem;color:var(--muted)}
 .list{list-style:none;padding:0;display:grid;gap:.6rem}.list a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;text-decoration:none;font-weight:600}.list a:hover{border-color:var(--brand)}.list span{display:block;padding:.8rem 1rem;color:var(--muted)}
 footer{border-top:1px solid var(--line);text-align:center;padding:1.5rem;color:var(--muted);font-size:.9rem}
-@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* Contact banner and donation popup */
+.contact-banner{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:2rem;width:100%;padding:2.5rem;border:1px solid var(--line);border-radius:20px;background:linear-gradient(rgba(10,17,32,.72),rgba(10,17,32,.72)),url('https://raw.githubusercontent.com/tantan885-sudo/LemmaLap/refs/heads/main/delete_background_3400521d_2K.jpg') center/cover no-repeat;color:#fff;box-shadow:0 10px 30px rgba(56,189,248,.12)}
+.contact-banner::before{content:"";position:absolute;top:-50px;right:-50px;width:150px;height:100px;border-radius:50%;background:rgba(79,195,214,.18)}
+.banner-content{position:relative;z-index:1;flex:1}.badge{display:inline-block;margin-bottom:.75rem;padding:.35rem .85rem;border-radius:20px;background:rgba(79,195,214,.18);color:#2798F5;font-size:.8rem;font-weight:800;letter-spacing:.04em}
+.banner-content h2{margin:0 0 .6rem;font-size:1.6rem;line-height:1.4}.banner-content p{margin:0;color:rgba(255,255,255,.9)}
+.banner-actions{position:relative;z-index:1;display:flex;flex-direction:column;gap:.75rem;min-width:220px}
+.btn-outline{display:flex;align-items:center;justify-content:center;padding:.75rem 1.25rem;border:2px solid var(--line);border-radius:12px;background:var(--surface);color:var(--brand);text-decoration:none;font-weight:700;transition:transform .2s,border-color .2s,background .2s}
+.btn-outline:hover{transform:translateY(-2px);border-color:var(--brand);background:var(--bg)}
+.float-donate{position:fixed;right:18px;bottom:18px;z-index:20;border:0;border-radius:999px;padding:.85rem 1.35rem;background:linear-gradient(135deg,#ef4444,#f97316);color:#fff;font-family:inherit;font-size:1rem;font-weight:700;box-shadow:0 8px 22px rgba(239,68,68,.4);cursor:pointer;animation:donate-pulse 2.5s infinite}
+@keyframes donate-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.donate-overlay{position:fixed;inset:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.6);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+.donate-overlay.active{opacity:1;visibility:visible}.donate-card{position:relative;width:100%;max-width:420px;max-height:90vh;overflow:auto;padding:2rem 1.6rem;border-radius:18px;background:var(--surface);color:var(--ink);text-align:center;box-shadow:0 10px 25px rgba(0,0,0,.2);transform:translateY(-16px);transition:transform .25s}
+.donate-overlay.active .donate-card{transform:translateY(0)}.donate-card h2{margin:.4rem 0 0;font-size:1.35rem;line-height:1.4}.donate-card p{color:var(--muted);line-height:1.7}.donate-close{position:absolute;top:8px;right:12px;border:0;background:none;color:var(--muted);font-size:1.8rem;cursor:pointer}
+.qr-box{max-width:260px;margin:0 auto 1rem;padding:.85rem;border:2px dashed var(--line);border-radius:14px;background:var(--bg)}.qr-box img{display:block;width:100%;height:auto;border-radius:8px}.qr-label{margin-top:.5rem;color:var(--brand);font-size:.8rem;font-weight:700}
+.donate-btn{display:block;padding:.8rem 1rem;border-radius:10px;background:var(--brand);color:var(--brand-ink);text-decoration:none;font-weight:800}.later-btn{margin-top:.75rem;border:0;background:none;color:var(--muted);font:inherit;font-size:.85rem;cursor:pointer}.thanks{margin:.75rem 0 0!important;font-size:.85rem}
+@media(max-width:640px){.contact-banner{flex-direction:column;text-align:center;padding:2rem 1.25rem}.banner-actions{width:100%;min-width:0}.banner-content h2{font-size:1.4rem}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <header><div class="bar">
 <a class="logo" href="#home"><img src="https://raw.githubusercontent.com/tantan885-sudo/LemmaLap/refs/heads/main/imsela_remove_bg520.png" alt="LemmaLap Logo">LemmaLap</a>
-<button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+<div class="header-actions">
+<button class="menu-toggle" type="button" aria-label="Toggle Menu" aria-expanded="false">☰</button>
+<button class="theme-toggle" type="button" aria-label="Switch to night mode" title="Switch to night mode" aria-pressed="false">🌙</button>
+</div>
 <nav aria-label="Main"><ul>
 <li><a href="#home" data-v="home">Home</a><ul><li><a href="#about-me" data-v="about-me">About Me</a></li></ul></li>
 <li><a href="#maths-g12" data-v="maths-g12">Maths G12</a></li>
@@ -95,21 +139,44 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.5rem;color:v
 <h2>Resources of Learning and Practice</h2>
 <p>ជ្រើសរើសមេរៀន និង លំហាត់ខាងក្រោមដើម្បីពង្រឹងសមត្ថភាពរបស់អ្នក</p>
 <div class="grid">
-<!-- កន្លែងដាក់រូបភាពសម្រាប់ Maths G12 (អក្សរនៅចំកណ្ដាល) -->
-<a class="tile t1" href="#maths-g12" style="background-image: url('YOUR_MATHS_IMAGE_URL_HERE');"><span>Maths G12</span></a>
+<!-- Maths G12 Tile using an <img> tag for precise fitting -->
+<a class="tile t1" href="#maths-g12">
+  <img src="https://media.istockphoto.com/id/1712923933/vector/mathematics-adventures-with-boy-and-girl.jpg?s=612x612&w=0&k=20&c=n8R2-3JE4Q3pFeV5fJIsV_ME0-9D_E0tg03kMEQWwQE=" alt="Maths G12">
+  <span>Maths G12</span>
+</a>
 
-<!-- កន្លែងដាក់រូបភាពសម្រាប់ UHS MCQs (អក្សរនៅចំកណ្ដាល) -->
-<a class="tile t2" href="#uhs-mcqs" style="background-image: url('YOUR_UHS_IMAGE_URL_HERE');"><span>UHS MCQs</span></a>
+<!-- UHS MCQs Tile using an <img> tag for precise fitting -->
+<a class="tile t2" href="#uhs-mcqs">
+  <img src="https://th.bing.com/th/id/R.f50f24df493530e6b7645a2c8842e64e?rik=EjOG0S%2fkfUGcjA&riu=http%3a%2f%2faseanmedschool.com%2fwp-content%2fuploads%2f2024%2f01%2fuhs-cambodia-logo-1.jpg&ehk=8czZ0e7yNwAtWsOsIFU2CMAwwS9a%2frgfeE5tffMQQwA%3d&risl=&pid=ImgRaw&r=0" alt="UHS MCQs">
+  <span>UHS MCQs</span>
+</a>
 </div>
+<div class="exam-cta">
 <h2>Let’s Ace Our Exams Together!</h2>
 <p>We provide exam-like tests for Grade 12 students and University of Health Sciences free of charge.</p>
 <p>Don’t be shy, come and try!</p>
+</div>
 </section>
 <section class="view page" id="about-me"><h1>About Me</h1><p>I’m an educational content creator dedicated to making learning engaging and accessible for students. Through my videos and resources, I aim to simplify complex concepts and inspire a love for learning in everyone.</p></section>
 <section class="view page" id="maths-g12"><h2>ថ្នាក់វិទ្យាសាស្រ្តសង្គម</h2><ul class="list"><li><a href="https://sites.google.com/view/lemma-lap/maths-g12/test-%E1%9E%8F%E1%9E%9A%E1%9E%98%E1%9E%94%E1%9E%9A%E1%9E%9B%E1%9E%84%E1%9E%94%E1%9E%80%E1%9E%8C%E1%9E%94_1">Test ត្រៀមប្រលងបាក់ឌុប</a></li><li><a href="#maths-exams">រៀនធ្វើវិញ្ញាសាត្រៀមប្រលងបាក់ឌុប</a></li></ul><h2>ថ្នាក់វិទ្យាសាស្រ្តពិត</h2><ul class="list"><li><a href="https://sites.google.com/view/lemma-lap/maths-g12/test-%E1%9E%8F%E1%9E%9A%E1%9E%98%E1%9E%94%E1%9E%9A%E1%9E%9B%E1%9E%84%E1%9E%94%E1%9E%80%E1%9E%8C%E1%9E%94">Test ត្រៀមប្រលងបាក់ឌុប</a></li></ul></section>
 <section class="view page" id="uhs-mcqs"><h2>Bachelor degree of Nurse Anestetic</h2><ul class="list"><li><a href="https://drive.google.com/file/d/1hyNDXXzIXTYc1-DBWOpvKvL7ACD7hteN/view?usp=drive_link">សំណួរទាំងអស់(PDF file)</a></li><li><a href="#mcqs-list">ជ្រើសរើសរៀន និងទន្ទេញ MCQs</a></li><li><a href="https://sites.google.com/view/lemma-lap/ជរសរសរនឯកសរ-mcqs-1/test">ធ្វើតេស្តសមត្ថភាព</a></li></ul><h2>DES</h2><ul class="list"><li><a href="https://t.me/+__3w0A4apuozNjI1">សំណួរទាំងអស់(PDF file)</a></li></ul><h2>MED MCQs Year 3-6</h2><p>Year3 (<a href="https://sites.google.com/view/lemma-lap/semester1-year3">Semester1</a> &amp; <a href="https://sites.google.com/view/lemma-lap/semester2-year3">Semester2</a>)</p></section>
-<section class="view page" id="contact-us"><h1>Contact Us</h1><p class="note">On the original site this page is a single image. Upload that image and it can be placed here.</p></section>
-<section class="view page" id="mcqs-list"><h2>ជ្រើសរើសរៀនឯកសារ MCQs</h2><ul class="list"><li><a href="https://sites.google.com/view/lemma-lap/ជរសរសរនឯកសរ-mcqs-1/1">1- វិទ្យាសាស្រ្តមូលដ្ឋាន (Basic science) -360</a></li><li><a href="https://sites.google.com/view/lemma-lap/ជរសរសរនឯកសរ-mcqs-1/2">2- វិទ្យាសាស្រ្តមូលដ្ឋានគ្រឹះ (Basic science Foundation) -378</a></li><li><a href="https://sites.google.com/view/lemma-lap/ជរសរសរនឯកសរ-mcqs-1/3">3- បែបបទថែទាំ (Nursing Process) -38</a></li><li><a href="https://sites.google.com/view/lemma-lap/ជរសរសរនឯកសរ-mcqs-1/4">4- ការថែទាំម្ដាយ និង ទារក (Maternal &amp; Child Nursing)-500</a></li><li><a href="https://sites.google.com/view/lemma-lap/ជរសរសរនឯកសរ-mcqs-1/5">5- ការថែទាំមនុស្សពេញវ័យ (Adult Nursing)-473</a></li><li><span>6- ការលើកកម្ពស់ទម្រង់ការថែទាំ (Fundamantal Nursing)-489</span></li><li><span>MCQ ADM Exit Exam 956 (1)</span></li><li><span>MCQ ADM Exit Exam 980 (2)</span></li></ul></section>
+<section class="view page" id="contact-us">
+<div class="contact-banner">
+<div class="banner-content"><span class="badge">CONTACT US</span><h2>មានចម្ងល់ ឬត្រូវការជំនួយ?</h2><p>Any suggestions, criticisms, or wanting to add any tests? Contact us through our platforms. Thanks!</p></div>
+<div class="banner-actions"><a href="http://t.me/MED230306" target="_blank" rel="noopener" class="btn-outline">Telegram</a><a href="https://www.facebook.com/share/19MdxvseYn/" target="_blank" rel="noopener" class="btn-outline">Facebook Page</a><a href="https://www.tiktok.com/@lemma.lap?_r=1&amp;_t=ZS-97VWs3eJmQ1" target="_blank" rel="noopener" class="btn-outline">TikTok</a></div>
+</div>
+<button type="button" class="float-donate" data-open-donate>❤️ គាំទ្រយើង</button>
+<div class="donate-overlay" data-donate-popup>
+<div class="donate-card" role="dialog" aria-modal="true" aria-labelledby="donateTitle">
+<button type="button" class="donate-close" data-close-donate aria-label="Close">&times;</button>
+<h2 id="donateTitle">❤️ ជួយគាំទ្រការខំប្រឹងប្រែងរបស់យើង</h2>
+<p>យើងនឹងខិតខំប្រឹងប្រែងរៀបចំ និងធ្វើឱ្យវេបសាយនេះមានខ្លឹមសារល្អ ដោយឥតគិតថ្លៃសម្រាប់អ្នករាល់គ្នា។ ទឹកប្រាក់តិចតួចពីអ្នក គឺជាកម្លាំងចិត្តដ៏ធំ ដើម្បីឱ្យខ្ញុំបន្តធ្វើបន្ថែមទៀត។</p>
+<div class="qr-box"><img src="khqr.png" alt="KHQR សម្រាប់បរិច្ចាគ" data-qr-image><div class="qr-label">ស្កេន KHQR តាមកម្មវិធីធនាគារណាមួយ</div></div>
+<a href="https://pay.ababank.com/oRF8/pckwn6ds" class="donate-btn" target="_blank" rel="noopener">បរិច្ចាគតាម ABA</a>
+<button type="button" class="later-btn" data-close-donate>ពេលក្រោយ</button><p class="thanks">សូមអរគុណ 🙏</p>
+</div></div>
+</section>
+<section class="view page" id="mcqs-list"><h2>ជ្រើសរើសរៀនឯកសារ MCQs</h2><ul class="list"><li><a href="https://tantan885-sudo.github.io/1_BBA_PreExam/1_BBA.html">1- វិទ្យាសាស្រ្តមូលដ្ឋាន (Basic science) -360</a></li><li><a href="https://tantan885-sudo.github.io/2_BBA_PreExam/2_BBA.html">2- វិទ្យាសាស្រ្តមូលដ្ឋានគ្រឹះ (Basic science Foundation) -378</a></li><li><a href="https://tantan885-sudo.github.io/3_BBA_PreExam/3_BBA.html">3- បែបបទថែទាំ (Nursing Process) -38</a></li><li><a href="https://tantan885-sudo.github.io/4_BBA_PreExam/4_BBA.html">4- ការថែទាំម្ដាយ និង ទារក (Maternal &amp; Child Nursing)-500</a></li><li><a href="https://tantan885-sudo.github.io/5_BBA_PreExam/5_BBA.html">5- ការថែទាំមនុស្សពេញវ័យ (Adult Nursing)-473</a></li><li><span>6- ការលើកកម្ពស់ទម្រង់ការថែទាំ (Fundamantal Nursing)-489</span></li><li><span>MCQ ADM Exit Exam 956 (1)</span></li><li><span>MCQ ADM Exit Exam 980 (2)</span></li></ul></section>
 <section class="view page" id="maths-exams"><h2>រៀនធ្វើវិញ្ញាសាត្រៀមប្រលងបាក់ឌុប</h2><ul class="list"><li><a href="https://sites.google.com/view/lemma-lap/1">វិញ្ញាសាទី១</a></li><li><a href="https://sites.google.com/view/lemma-lap/1/1-1">វិញ្ញាសាទី២</a></li><li><a href="https://sites.google.com/view/lemma-lap/1/1-2">វិញ្ញាសាទី៣</a></li><li><a href="https://sites.google.com/view/lemma-lap/1/1-3">វិញ្ញាសាទី៤</a></li><li><a href="https://sites.google.com/view/lemma-lap/1/1-4">វិញ្ញាសាទី៥</a></li></ul></section>
 <div class="cta" id="cta"><strong>Any comments / suggestions for our site?</strong><p>Contact us through our official Platforms by Click here to redirect.</p><a class="btn alt" href="#contact-us">CONTACT US</a></div>
 </main>
@@ -118,16 +185,43 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.5rem;color:v
 (function(){
 var views=document.querySelectorAll('.view'),links=document.querySelectorAll('nav a[data-v]'),par={'mcqs-list':'uhs-mcqs','maths-exams':'maths-g12'},cta=document.getElementById('cta');
 var menuToggle=document.querySelector('.menu-toggle'),nav=document.querySelector('nav');
+var themeToggle=document.querySelector('.theme-toggle'),root=document.documentElement;
+var donatePopup=document.querySelector('[data-donate-popup]');
+
+function isDarkMode(){return root.dataset.theme==='dark'||(!root.dataset.theme&&window.matchMedia('(prefers-color-scheme: dark)').matches)}
+function updateThemeButton(){
+var dark=isDarkMode();
+if(themeToggle){themeToggle.textContent=dark?'☀️':'🌙';themeToggle.setAttribute('aria-pressed',String(dark));themeToggle.setAttribute('aria-label',dark?'Switch to day mode':'Switch to night mode');themeToggle.title=dark?'Switch to day mode':'Switch to night mode'}
+}
+try{var savedTheme=localStorage.getItem('lemmaLapTheme');if(savedTheme==='light'||savedTheme==='dark')root.dataset.theme=savedTheme}catch(error){}
+updateThemeButton();
+if(themeToggle)themeToggle.addEventListener('click',function(){root.dataset.theme=isDarkMode()?'light':'dark';try{localStorage.setItem('lemmaLapTheme',root.dataset.theme)}catch(error){}updateThemeButton()});
+var openDonate=document.querySelector('[data-open-donate]');
+
+if(openDonate&&donatePopup){
+var donateClosedKey='donatePopupClosedAt';
+var donateQuietPeriod=3*24*60*60*1000;
+function showDonatePopup(){donatePopup.classList.add('active')}
+function closeDonatePopup(){donatePopup.classList.remove('active');try{localStorage.setItem(donateClosedKey,String(Date.now()))}catch(error){}}
+function recentlyClosed(){try{var closedAt=Number(localStorage.getItem(donateClosedKey));return closedAt&&(Date.now()-closedAt)<donateQuietPeriod}catch(error){return false}}
+openDonate.addEventListener('click',showDonatePopup);
+donatePopup.querySelectorAll('[data-close-donate]').forEach(function(button){button.addEventListener('click',closeDonatePopup)});
+donatePopup.addEventListener('click',function(event){if(event.target===donatePopup)closeDonatePopup()});
+document.addEventListener('keydown',function(event){if(event.key==='Escape')closeDonatePopup()});
+if(!recentlyClosed())window.setTimeout(showDonatePopup,10000);
+var qrImage=donatePopup.querySelector('[data-qr-image]');
+if(qrImage)qrImage.addEventListener('error',function(){qrImage.parentElement.style.display='none'});
+}
 
 // Toggle Hamburger Menu
-menuToggle.addEventListener('click',function(){nav.classList.toggle('active');});
+menuToggle.addEventListener('click',function(){var isOpen=nav.classList.toggle('active');menuToggle.setAttribute('aria-expanded',String(isOpen));});
 
 function show(){
 var id=(location.hash||'#home').slice(1);
 if(!document.getElementById(id))id='home';
 views.forEach(function(v){v.classList.toggle('on',v.id===id)});
 var cur=par[id]||id;cta.style.display=id==='contact-us'?'none':'';links.forEach(function(a){if(a.dataset.v===cur)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
-nav.classList.remove('active'); // Close menu on navigation click
+nav.classList.remove('active');menuToggle.setAttribute('aria-expanded','false'); // Close menu on navigation click
 window.scrollTo(0,0);
 }
 window.addEventListener('hashchange',show);show();
