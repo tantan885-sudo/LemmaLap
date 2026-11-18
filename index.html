@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>LemmaLap</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/tantan885-sudo/LemmaLap/refs/heads/main/imsela_remove_bg918.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Noto+Sans+Khmer:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -227,7 +228,7 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.5rem;color:v
 <h2 id="donateTitle">❤️ ជួយគាំទ្រការខំប្រឹងប្រែងរបស់យើង</h2>
 <p>យើងនឹងខិតខំប្រឹងប្រែងរៀបចំ និងធ្វើឱ្យវេបសាយនេះមានខ្លឹមសារល្អ ដោយឥតគិតថ្លៃសម្រាប់អ្នករាល់គ្នា។ ទឹកប្រាក់តិចតួចពីអ្នក គឺជាកម្លាំងចិត្តដ៏ធំ ដើម្បីឱ្យខ្ញុំបន្តធ្វើបន្ថែមទៀត។</p>
 <div class="qr-box"><img src="https://raw.githubusercontent.com/tantan885-sudo/LemmaLap/refs/heads/main/1000034665.jpg" alt="KHQR សម្រាប់បរិច្ចាគ" data-qr-image><div class="qr-label">ស្កេន KHQR តាមកម្មវិធីធនាគារណាមួយ</div></div>
-<a href="https://pay.ababank.com/oRF8/pckwn6ds" class="donate-btn" target="_blank" rel="noopener">បរិច្ចាគតាម ABA</a>
+
 <button type="button" class="later-btn" data-close-donate>ពេលក្រោយ</button><p class="thanks">សូមអរគុណ 🙏</p>
 </div></div>
 </section>
@@ -235,8 +236,9 @@ footer{border-top:1px solid var(--line);text-align:center;padding:1.5rem;color:v
 <section class="view page" id="maths-exams"><h2>រៀនធ្វើវិញ្ញាសាត្រៀមប្រលងបាក់ឌុប</h2><ul class="list"><li><a href="https://sites.google.com/view/lemma-lap/1">វិញ្ញាសាទី១</a></li><li><a href="https://sites.google.com/view/lemma-lap/1/1-1">វិញ្ញាសាទី២</a></li><li><a href="https://sites.google.com/view/lemma-lap/1/1-2">វិញ្ញាសាទី៣</a></li><li><a href="https://sites.google.com/view/lemma-lap/1/1-3">វិញ្ញាសាទី៤</a></li><li><a href="https://sites.google.com/view/lemma-lap/1/1-4">វិញ្ញាសាទី៥</a></li></ul></section>
 <div class="cta" id="cta"><strong>Any comments / suggestions for our site?</strong><p>Contact us through our official Platforms by Click here to redirect.</p><button class="btn support-cta" type="button" data-open-donate>SUPPORT US</button><br><a class="btn alt" href="#contact-us">CONTACT US</a></div>
 </main>
-<footer>Copyright © 2026 LemmaLap</footer>
+<footer>Copyright © <span id="current-year"></span> LemmaLap</footer>
 <script>
+document.getElementById('current-year').textContent=new Date().getFullYear();
 (function(){
 var views=document.querySelectorAll('.view'),links=document.querySelectorAll('nav a[data-v]'),par={'mcqs-list':'uhs-mcqs','maths-exams':'maths-g12','y4-s1-test':'uhs-mcqs','y3-s1-test':'uhs-mcqs','y3-s2-test':'uhs-mcqs','y4-s2-test':'uhs-mcqs','y5-s1-test':'uhs-mcqs','y5-s2-test':'uhs-mcqs','y6-s1-test':'uhs-mcqs','y6-s2-test':'uhs-mcqs','y3-s1-learn':'uhs-mcqs','y3-s2-learn':'uhs-mcqs','y4-s1-learn':'uhs-mcqs','y4-s2-learn':'uhs-mcqs','y5-s1-learn':'uhs-mcqs','y5-s2-learn':'uhs-mcqs','y6-s1-learn':'uhs-mcqs','y6-s2-learn':'uhs-mcqs','y3-s1':'uhs-mcqs','y3-s2':'uhs-mcqs','y4-s1':'uhs-mcqs','y4-s2':'uhs-mcqs','y5-s1':'uhs-mcqs','y5-s2':'uhs-mcqs','y6-s1':'uhs-mcqs','y6-s2':'uhs-mcqs'},cta=document.getElementById('cta');
 var menuToggle=document.querySelector('.menu-toggle'),nav=document.querySelector('nav');
